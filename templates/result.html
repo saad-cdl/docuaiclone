@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <h1>Result</h1>
+    {% if summary %}
+        <h2>Text Summary</h2>
+        <p>{{ summary }}</p>
+    {% endif %}
+
+    {% if image_descriptions %}
+        <h2>Image Descriptions</h2>
+        {% for image_base64, description in image_descriptions %}
+            <div>
+                <img src="data:image/jpeg;base64,{{ image_base64 }}" alt="Image" style="max-width: 500px; max-height: 500px;">
+                <p><strong>Description:</strong> {{ description }}</p>
+            </div>
+        {% endfor %}
+    {% endif %}
+
+    <a href="{{ url_for('download_file', filetype='docx') }}" class="btn btn-primary">Download as DOCX</a>
+    <a href="{{ url_for('download_file', filetype='pdf') }}" class="btn btn-secondary">Download as PDF</a>
+
+    <a href="{{ url_for('upload_form') }}">Upload Another File</a>
+</body>
+</html>

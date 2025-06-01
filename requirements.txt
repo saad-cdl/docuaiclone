@@ -1,0 +1,13 @@
+flask
+flask_sqlalchemy
+flask_login
+werkzeug
+tensorflow
+torch
+transformers
+pillow
+python-docx
+reportlab
+textract
+PyMuPDF
+requests
